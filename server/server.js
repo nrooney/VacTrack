@@ -2,7 +2,7 @@ var static = require('node-static'),
 http = require('http'),
 util = require('util');
 
-var webroot = "../client",
+var webroot = "client",
 port = 8000;
 
 var file = new(static.Server)(webroot, {
