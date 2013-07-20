@@ -10,3 +10,4 @@ Instructions
 
 Run: 
 - Run by using npm start
+- Connect on localhost:8000

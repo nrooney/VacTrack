@@ -16,8 +16,8 @@
 		"url": "https://github.com/nrooney/VacTrack"
 	},
 	"dependencies" : {
-		"node-static"   :  "0.7.x",
-		"sqlite3"       :  "2.1.x"
+		"sqlite3"       :  "2.1.x",
+		"restify"       :  "2.6.x"
 	},
 	"license": "WTFPL",
 	"engines": {
