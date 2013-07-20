@@ -6,4 +6,7 @@ Instructions
 ============
 
 - Install node.js
-- Run by using node server/server.js
+- Setup dependencies by using npm install
+
+Run: 
+- Run by using npm start
