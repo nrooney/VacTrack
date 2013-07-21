@@ -1,32 +1,32 @@
 
-
-
-
-CREATE TABLE Persons
+CREATE TABLE tPerson
 (
-Id int NOT NULL,
+id int NOT NULL,
 name varchar(255) NOT NULL,
 
-PRIMARY KEY (Id)
+PRIMARY KEY (id)
 )
 
-CREATE TABLE Event
+
+
+CREATE TABLE tEvent
 (
-Id int NOT NULL,
+id int NOT NULL,
 name varchar(255) NOT NULL,
+time_stamp DATETIME NOT NULL,
 latitude DECIMAL(9,6) NOT NULL,
 longitude DECIMAL(9,6) NOT NULL,
-
-
-PRIMARY KEY (Id)
+position_range DECIMAL(9,6) DEFAULT 0.0001, --1e-4 around 10m 
+extra_details TEXT,
+PRIMARY KEY (id)
 )
 
 
 
 
-CREATE TABLE Transaction
+CREATE TABLE tTransaction
 (
-Id int NOT NULL,
-  varchar(255) NOT NULL,
-PRIMARY KEY (Id)
+id int NOT NULL,
+amount DECIMAL(5,2),
+PRIMARY KEY (id)
 )
