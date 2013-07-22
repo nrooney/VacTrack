@@ -16,6 +16,8 @@
       }
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -36,11 +38,11 @@
       <div class="navbar-inner">
         <div class="container">
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
+            <div class="icon-bar"></div>
           </button>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="#" id="project_name"></a>
           <div class="nav-collapse collapse">
             <ul class="nav">
               <li class="active"><a href="#">Home</a></li>
@@ -54,15 +56,147 @@
 
     <div class="container">
 
-      <h1>Bootstrap starter template</h1>
-      <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+      <div id="modalcontainer">
+      <!-- TEMPLATE -->
+        <div id="transaction_detail">
+          <div class="meta">
+            <div class="metaLHS">
+              <div class="date"><i class="icon-calendar-empty"></i> 30th Dec</div>
+              <div class="name">Cycle Hire @ Bob's Cycles and Skates, San Francisco, CA</div>
+            </div>
+            <div class="metaRHS">
+              <a class="btn" href="#" onclick="exitDetailTransaction()"><i class="icon-remove"></i></a>
+              <div class="total">$104.23</div>
+            </div>
+          </div>
+
+          <div class="mini-paylog datagrid">
+            <table>
+              <tbody>
+                <tr class="paid"><td></td><td>35</td><td></td><td></td><td>20</td><td>15</td><td></td></tr>
+                <tr class="people"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr class="owes"><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="place-map">
+            <img src="img/dennys.png">
+          </div>
+
+          <div class="editdeletebtns">
+            <a class="btn" href="#" onclick="detailTransaction()"><i class="icon-edit icon-large"></i> Edit</a>
+            <a class="btn btn-danger" href="#"><i class="icon-trash icon-large"></i> Delete</a>
+          </div>
+        </div>
+        <!-- END TEMPLATE -->
+      </div>
+
+
+      <h1>Pay Log</h1>
+
+      <div id="logParent">
+
+        <!-- TRANSACTION 1-->
+        <div class="transaction">
+          <div class="meta">
+            <div class="metaLHS">
+              <div class="date"><i class="icon-calendar-empty"></i> 19th Dec</div>
+              <div class="name">Dinner @ Denny's Restaurant, Tuscon, AZ</div>
+            </div>
+            <div class="metaRHS">
+              <a class="btn" href="#" onclick="detailTransaction()"><i class="icon-heart"></i></a>
+              <div class="total">$104.23</div>
+            </div>
+          </div>
+          <div class="datagrid"><table>
+            <tbody>
+              <tr class="paid"><td></td><td>35</td><td></td><td></td><td>20</td><td>15</td><td></td></tr>
+              <tr class="people"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr class="owes"><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td></tr>
+            </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TRANSACTION 2-->
+        <div class="transaction">
+          <div class="meta">
+            <div class="metaLHS">
+              <div class="date"><i class="icon-calendar-empty"></i> 23rd Dec</div>
+              <div class="name">Lunch @ Reindeer Pizza Cafe, Route 8, CA</div>
+            </div>
+            <div class="metaRHS">
+              <a class="btn" href="#" onclick="detailTransaction()"><i class="icon-heart"></i></a>
+              <div class="total">$104.23</div>
+            </div>
+          </div>
+          <div class="datagrid"><table>
+            <tbody>
+              <tr class="paid"><td></td><td>35</td><td></td><td></td><td>20</td><td>15</td><td></td></tr>
+              <tr class="people"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr class="owes"><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td></tr>
+            </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TRANSACTION 2-->
+        <div class="transaction">
+          <div class="meta">
+            <div class="metaLHS">
+              <div class="date"><i class="icon-calendar-empty"></i> 25th Dec</div>
+              <div class="name">Museum Tickets @ MoMA, San Francisco, CA</div>
+            </div>
+            <div class="metaRHS">
+              <a class="btn" href="#" onclick="detailTransaction()"><i class="icon-heart"></i></a>
+              <div class="total">$104.23</div>
+            </div>
+          </div>
+          <div class="datagrid"><table>
+            <tbody>
+              <tr class="paid"><td></td><td>35</td><td></td><td></td><td>20</td><td>15</td><td></td></tr>
+              <tr class="people"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr class="owes"><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td></tr>
+            </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- TRANSACTION 4-->
+        <div class="transaction">
+          <div class="meta">
+            <div class="metaLHS">
+              <div class="date"><i class="icon-calendar-empty"></i> 30th Dec</div>
+              <div class="name">Cycle Hire @ Bob's Cycles and Skates, San Francisco, CA</div>
+            </div>
+            <div class="metaRHS">
+              <a class="btn" href="#" onclick="detailTransaction()"><i class="icon-heart"></i></a>
+              <div class="total">$104.23</div>
+            </div>
+          </div>
+          <div class="datagrid"><table>
+            <tbody>
+              <tr class="paid"><td></td><td>35</td><td></td><td></td><td>20</td><td>15</td><td></td></tr>
+              <tr class="people"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+              <tr class="owes"><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td></tr>
+            </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+
+      
+      
 
     </div> <!-- /container -->
 
     <!-- Le javascript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="js/jquery.js"></script>
+    <script src="js/app.js"></script>
+    <!--  <script src="js/jquery.js"></script>
     <script src="js/bootstrap-transition.js"></script>
     <script src="js/bootstrap-alert.js"></script>
     <script src="js/bootstrap-modal.js"></script>
@@ -74,7 +208,7 @@
     <script src="js/bootstrap-button.js"></script>
     <script src="js/bootstrap-collapse.js"></script>
     <script src="js/bootstrap-carousel.js"></script>
-    <script src="js/bootstrap-typeahead.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>-->
 
   </body>
 </html>
