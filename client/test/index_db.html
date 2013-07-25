@@ -15,6 +15,9 @@
 			(new Worker("webworker.js")).onmessage = function(event) {
 				document.querySelector("#web_worker_test").textContent = event.data;
 			};
+
+			//This will ask you if you want to install as soon as page loads
+			navigator.mozApps.install("http://127.0.0.1:8000/test/index_db.webapp");
 		</script>
 	</body>
 </html>
