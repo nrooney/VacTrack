@@ -4,7 +4,8 @@ function test_db() {
 	function error_func(event) {
 		completed = JSON.stringify(event);
 
-		if (self.indexedDB) indexedDB.deleteDatabase("TestDB");
+		if ((typeof self !== 'undefined' && self.indexedDB) ||
+			(typeof window !== 'undefined' && window.indexedDB)) indexedDB.deleteDatabase("TestDB");
 	}
 
 	try {
