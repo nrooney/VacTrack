@@ -9,7 +9,7 @@ var db_file = "./vactrack.db"
 
 if (!fs.existsSync(db_file)) {
 	console.log("No db! Create by executing \"sqlite3 -init server/vactrack.sql " + db_file + " '.exit'\"");
-	// TODO: create dummy data for insert
+	console.log("Dummy data is available in server/test.sql");
 	process.exit(1);
 }
 
