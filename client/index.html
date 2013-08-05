@@ -16,8 +16,9 @@
       }
     </style>
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <link href="js/BootstrapFormHelpers/css/bootstrap-formhelpers.css " rel="stylesheet">
     <link href="css/app.css" rel="stylesheet">
-    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="js/font-awesome/css/font-awesome.min.css">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -59,16 +60,75 @@
       <div id="modalcontainer">
       <!-- TEMPLATE -->
         <div id="transaction_detail">
+
+          <!--inputs-->
           <div class="meta">
             <div class="metaLHS">
-              <div class="date"><i class="icon-calendar-empty"></i> 30th Dec</div>
-              <div class="name">Cycle Hire @ Bob's Cycles and Skates, San Francisco, CA</div>
+              <div id="date">
+                <div class="bfh-datepicker">
+                  <div class="input-prepend bfh-datepicker-toggle" data-toggle="bfh-datepicker">
+                    <span class="add-on"><i class="icon-calendar"></i></span>
+                    <input type="text" class="input-medium" readonly>
+                  </div>
+                  <div class="bfh-datepicker-calendar">
+                    <table class="calendar table table-bordered">
+                      <thead>
+                        <tr class="months-header">
+                          <th class="month" colspan="4">
+                            <a class="previous" href="#"><i class="icon-chevron-left"></i></a>
+                            <span></span>
+                            <a class="next" href="#"><i class="icon-chevron-right"></i></a>
+                          </th>
+                          <th class="year" colspan="3">
+                            <a class="previous" href="#"><i class="icon-chevron-left"></i></a>
+                            <span></span>
+                            <a class="next" href="#"><i class="icon-chevron-right"></i></a>
+                          </th>
+                        </tr>
+                        <tr class="days-header">
+                        </tr>
+                      </thead>
+                      <tbody>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+              <div id="time">
+                <div class="bfh-timepicker">
+                  <div class="input-prepend bfh-timepicker-toggle" data-toggle="bfh-timepicker">
+                    <span class="add-on"><i class="icon-time"></i></span>
+                    <input type="text" class="input-medium" readonly>
+                  </div>
+                  <div class="bfh-timepicker-popover">
+                    <table class="table">
+                      <tbody>
+                        <tr>
+                          <td class="hour">
+                            <a class="next" href="#"><i class="icon-chevron-up"></i></a><br>
+                            <input type="text" class="input-mini" readonly><br>
+                            <a class="previous" href="#"><i class="icon-chevron-down"></i></a>
+                          </td>
+                          <td class="separator">:</td>
+                          <td class="minute">
+                            <a class="next" href="#"><i class="icon-chevron-up"></i></a><br>
+                            <input type="text" class="input-mini" readonly><br>
+                            <a class="previous" href="#"><i class="icon-chevron-down"></i></a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="metaRHS">
               <a class="btn" href="#" onclick="exitDetailTransaction()"><i class="icon-remove"></i></a>
               <div class="total">$104.23</div>
             </div>
           </div>
+
+          <div id="name">Cycle Hire @ Bob's Cycles and Skates, San Francisco, CA</div>
 
           <div class="mini-paylog datagrid">
             <table>
@@ -85,8 +145,41 @@
           </div>
 
           <div class="editdeletebtns">
-            <a class="btn" href="#" onclick="detailTransaction()"><i class="icon-edit icon-large"></i> Edit</a>
-            <a class="btn btn-danger" href="#"><i class="icon-trash icon-large"></i> Delete</a>
+            <a class="btn" href="#" onclick="editTransaction()"><i class="icon-edit icon-large"></i> Edit</a>
+            <a class="btn btn-danger" href="#" onclick="deleteTransaction()"><i class="icon-trash icon-large"></i> Delete</a>
+          </div>
+          <!--inputs-->
+
+          <div class="meta">
+            <div class="metaLHS">
+              <div id="date"><i class="icon-calendar-empty"></i> 30th Dec</div>
+              <div id="time"><i class="icon-time"></i> 18:30</div>
+            </div>
+            <div class="metaRHS">
+              <a class="btn" href="#" onclick="exitDetailTransaction()"><i class="icon-remove"></i></a>
+              <div class="total">$104.23</div>
+            </div>
+          </div>
+
+          <div id="name">Cycle Hire @ Bob's Cycles and Skates, San Francisco, CA</div>
+
+          <div class="mini-paylog datagrid">
+            <table>
+              <tbody>
+                <tr class="paid"><td></td><td>35</td><td></td><td></td><td>20</td><td>15</td><td></td></tr>
+                <tr class="people"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+                <tr class="owes"><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td><td>10</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="place-map">
+            <img src="img/dennys.png">
+          </div>
+
+          <div class="editdeletebtns">
+            <a class="btn" href="#" onclick="editTransaction()"><i class="icon-edit icon-large"></i> Edit</a>
+            <a class="btn btn-danger" href="#" onclick="deleteTransaction()"><i class="icon-trash icon-large"></i> Delete</a>
           </div>
         </div>
         <!-- END TEMPLATE -->
@@ -101,8 +194,8 @@
         <div class="transaction">
           <div class="meta">
             <div class="metaLHS">
-              <div class="date"><i class="icon-calendar-empty"></i> 19th Dec</div>
-              <div class="name">Dinner @ Denny's Restaurant, Tuscon, AZ</div>
+              <div id="date"><i class="icon-calendar-empty"></i> 19th Dec</div>
+              <div id="name">Dinner @ Denny's Restaurant, Tuscon, AZ</div>
             </div>
             <div class="metaRHS">
               <a class="btn" href="#" onclick="detailTransaction()"><i class="icon-heart"></i></a>
@@ -123,8 +216,8 @@
         <div class="transaction">
           <div class="meta">
             <div class="metaLHS">
-              <div class="date"><i class="icon-calendar-empty"></i> 23rd Dec</div>
-              <div class="name">Lunch @ Reindeer Pizza Cafe, Route 8, CA</div>
+              <div id="date"><i class="icon-calendar-empty"></i> 23rd Dec</div>
+              <div id="name">Lunch @ Reindeer Pizza Cafe, Route 8, CA</div>
             </div>
             <div class="metaRHS">
               <a class="btn" href="#" onclick="detailTransaction()"><i class="icon-heart"></i></a>
@@ -145,8 +238,8 @@
         <div class="transaction">
           <div class="meta">
             <div class="metaLHS">
-              <div class="date"><i class="icon-calendar-empty"></i> 25th Dec</div>
-              <div class="name">Museum Tickets @ MoMA, San Francisco, CA</div>
+              <div id="date"><i class="icon-calendar-empty"></i> 25th Dec</div>
+              <div id="name">Museum Tickets @ MoMA, San Francisco, CA</div>
             </div>
             <div class="metaRHS">
               <a class="btn" href="#" onclick="detailTransaction()"><i class="icon-heart"></i></a>
@@ -167,8 +260,8 @@
         <div class="transaction">
           <div class="meta">
             <div class="metaLHS">
-              <div class="date"><i class="icon-calendar-empty"></i> 30th Dec</div>
-              <div class="name">Cycle Hire @ Bob's Cycles and Skates, San Francisco, CA</div>
+              <div id="date"><i class="icon-calendar-empty"></i> 30th Dec</div>
+              <div id="name">Cycle Hire @ Bob's Cycles and Skates, San Francisco, CA</div>
             </div>
             <div class="metaRHS">
               <a class="btn" href="#" onclick="detailTransaction()"><i class="icon-heart"></i></a>
@@ -194,10 +287,12 @@
 
     <!-- Le javascript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
+    <!-- Placed at the end of the document so the pages load faster -->    
+    <script src="js/jquery.js"></script>
+    <script src="js/BootstrapFormHelpers/js/bootstrap-formhelpers-datepicker.js"></script>
+    <script src="js/BootstrapFormHelpers/js/bootstrap-formhelpers-timepicker.js"></script>
     <script src="js/app.js"></script>
-    <!--  <script src="js/jquery.js"></script>
-    <script src="js/bootstrap-transition.js"></script>
+    <!--  <script src="js/bootstrap-transition.js"></script>
     <script src="js/bootstrap-alert.js"></script>
     <script src="js/bootstrap-modal.js"></script>
     <script src="js/bootstrap-dropdown.js"></script>
