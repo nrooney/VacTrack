@@ -6,8 +6,7 @@ module.exports = function rest_api(options) {
 	var supported_versions = ["1"];
 
 	server.get('/rest/hello', function api_hello(req, res, next) {
-		db.all("SELECT $up;",
-			   {$up: "Wonkers"},
+		db.all("SELECT 1;",
 			   function(err, rows) {
 				   var response = {
 					   hello: "Hello, traveller. VacTrack REST API",
@@ -16,7 +15,7 @@ module.exports = function rest_api(options) {
 				   };
 
 				   if (!err && rows.length === 1) {
-					   response.db = rows[0].$up;
+					   response.db = "1";
 				   }
 
 				   res.send(response);
