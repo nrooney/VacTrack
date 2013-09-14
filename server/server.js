@@ -1,12 +1,13 @@
-var restify = require('restify'),
-sqlite3 = require('sqlite3'),
-fs = require('fs');
+var restify = require("restify"),
+sqlite3 = require("sqlite3"),
+fs = require("fs");
 
 var webroot = "client",
 port = 8000;
 
 var db_file = "./vactrack.db"
 
+//TODO: Localisation? Maybe L20n?
 if (!fs.existsSync(db_file)) {
 	console.log("No db! Create by executing \"sqlite3 -init server/vactrack.sql " + db_file + " '.exit'\"");
 	console.log("Dummy data is available in server/test.sql");
@@ -29,6 +30,8 @@ function start_server() {
 
 	server.use(restify.acceptParser(server.acceptable));
 	server.use(restify.queryParser({ mapParams: false }));
+	server.use(restify.bodyParser({ mapParams: false }));
+	// TODO: Caching/gzip/Etag
 
 	server.get(/^(?!\/rest\/).*/, restify.serveStatic({
 		directory: webroot,
