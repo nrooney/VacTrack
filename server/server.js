@@ -1,3 +1,5 @@
+"use strict";
+
 var restify = require("restify"),
 sqlite3 = require("sqlite3"),
 fs = require("fs");

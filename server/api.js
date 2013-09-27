@@ -2,6 +2,8 @@ var Q = require("q"),
 restify = require("restify");
 
 module.exports = function rest_api(options) {
+	"use strict";
+
 	var db = options.db;
 	var server = options.server;
 
