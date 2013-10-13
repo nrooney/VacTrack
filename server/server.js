@@ -31,8 +31,8 @@ function start_server() {
 	var server = restify.createServer();
 
 	server.use(restify.acceptParser(server.acceptable));
-	server.use(restify.queryParser({ mapParams: false }));
-	server.use(restify.bodyParser({ mapParams: false }));
+	server.use(restify.queryParser({ mapParams: true }));
+	server.use(restify.bodyParser({ mapParams: true }));
 	// TODO: Caching/gzip/Etag
 
 	server.get(/^(?!\/rest\/).*/, restify.serveStatic({
