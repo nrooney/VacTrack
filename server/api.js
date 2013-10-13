@@ -48,13 +48,12 @@ module.exports = function rest_api(options) {
 				var params = build_params(parameters, req.params);
 
 				return callback_fun(params);
-			})
-				.catch(function global_error(error) {
-					return next(error);
-				}).done(function global_done(value) {
-					res.send(value);
-					return next();
-				});
+			}).catch(function global_error(error) {
+				return next(error);
+			}).done(function global_done(value) {
+				res.send(value);
+				return next();
+			});
 		};
 
 		server[http_method](endpoint, wrapped_callback);
