@@ -15,12 +15,6 @@ describe("Client DB", function() {
 					   [200, { "Content-Type": "application/json" },
 						'{"1":"firesock","2":"blu","3":"schuki","4":"weiho"}']);
 
-
-	// This seems to happen on DB delete/recreate
-	// Annoyingly slows down the tests
-	// TODO: Do something about this! investigate objectStore clear?
-	this.timeout(30000);
-
 	var db;
 
 	describe("Setup", function(){
