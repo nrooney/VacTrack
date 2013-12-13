@@ -12,7 +12,7 @@ var ClientDB = function() {
 		};
 
 		req.onload = function ajax_handler(event) {
-			deferred.resolve(JSON.parse(this.responseText));
+			deferred.resolve(JSON.parse(req.responseText));
 		};
 
 		req.open("GET", url, true);
@@ -89,6 +89,10 @@ var ClientDB = function() {
 
 			return deferred.promise;
 		},
+
+		close: function() {
+			this._db.close();
+		},
 	};
 
 	function store_wrapper(store_name, db) {
@@ -131,10 +135,12 @@ var ClientDB = function() {
 		},
 	};
 
-	function db() {
+	function db(db_name) {
+		db_name = (typeof db_name === 'undefined') ? "VacTrack" : db_name;
+
 		var deferred = Q.defer();
 
-		var open_req = indexedDB.open("VacTrack", 1);
+		var open_req = indexedDB.open(db_name, 1);
 
 		open_req.onerror = function(event) {
 			deferred.reject(event);
